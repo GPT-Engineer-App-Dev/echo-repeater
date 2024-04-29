@@ -7,14 +7,16 @@ const Index = () => {
   const [number, setNumber] = useState(1);
 
   const incrementNumber = () => {
-    setNumber(number + 1);
+    if (number < 2) {
+      setNumber(number + 1);
+    }
   };
 
   return (
     <Box p={5} maxW="480px" m="auto" mt="20vh" bg="white" boxShadow="md">
       <Text fontSize="2xl" fontWeight="bold">Number Increment</Text>
       <Text fontSize="4xl">{number}</Text>
-      <Button onClick={incrementNumber} mt={4}>Increment Number</Button>
+      <Button onClick={incrementNumber} mt={4} isDisabled={number === 2}>Increment Number</Button>
     </Box>
   );
 };
