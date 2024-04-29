@@ -1,15 +1,24 @@
 // Complete the Index page component here
 // Use chakra-ui
-import { Button } from "@chakra-ui/react"; // example
-import { FaPlus } from "react-icons/fa"; // example - use react-icons/fa for icons
+import { Box, Text, Button } from '@chakra-ui/react';
+import { useState } from 'react';
 
 const Index = () => {
-  // TODO: Create the website here!
+  const [number, setNumber] = useState(1);
+
+  const incrementNumber = () => {
+    if (number < 2) {
+      setNumber(number + 1);
+    }
+  };
+
   return (
-    <Button>
-      Hello world! <FaPlus />
-    </Button>
-  ); // example
+    <Box p={5} maxW="480px" m="auto" mt="20vh" bg="white" boxShadow="md">
+      <Text fontSize="2xl" fontWeight="bold">Number Increment</Text>
+      <Text fontSize="4xl">{number}</Text>
+      <Button onClick={incrementNumber} mt={4} isDisabled={number === 2}>Increment Number</Button>
+    </Box>
+  );
 };
 
 export default Index;
